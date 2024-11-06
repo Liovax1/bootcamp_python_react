@@ -1,5 +1,6 @@
 import React from 'react';
-export default function RowToto({ id, name, score}) {
+
+const PlayerRow = ({ id, name, score }) => {
     return (
         <tr>
             <td>{id}</td>
@@ -7,7 +8,6 @@ export default function RowToto({ id, name, score}) {
             <td>{score}</td>
         </tr>
     );
-}
+};
 
-
-
+export default PlayerRow;

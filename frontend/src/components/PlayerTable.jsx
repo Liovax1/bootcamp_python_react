@@ -1,16 +1,7 @@
 import React from 'react';
-import PlayerRow from './PlayerRow'
-import TableToto from './PlayerTable';
+import PlayerRow from './PlayerRow';
 
-// const playersData = [
-//     {
-//         id: 1,
-//         score: 0,
-//         name: "toto",
-//     },
-//   ];
-
-export default function TableToto({ players }) {
+export default function PlayerTable({ players }) {
     return (
         <table>
             <thead>
@@ -21,7 +12,7 @@ export default function TableToto({ players }) {
                 </tr>
             </thead>
             <tbody>
-            {players?.map((player) => (
+                {players?.map((player) => (
                     <PlayerRow
                         key={player.id}
                         id={player.id}

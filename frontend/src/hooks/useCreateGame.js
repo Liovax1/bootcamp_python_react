@@ -1,18 +1,34 @@
 export default function useCreateGame() {
-    const createGame = () => {
-        fetch("http://localhost:8000/api/game/", {
-        method: "POST",
-        body: {
-            name: "game_name",
-            players: ["toto", "tata"],
-        },
-    })
+
+    const createGame = (gameName, players) => {
+        fetch("http://localhost:8000/api/start_game/{id}", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({ 
+                name: gameName,
+                players: players,
+            }),
+        })
+
         .then((response) => {
-        console.log(response);
-    })
-    .catch((reason) => {
-        console.error(reason);
-    });
-};
-return { createGame };
+            if (!response.ok) {
+                throw new Error("Mauvaise réponse");
+            }
+            return response.json();
+        })
+
+        .then((response) => { 
+            console.log(response);
+        })
+
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+
+    return { createGame }; 
 }

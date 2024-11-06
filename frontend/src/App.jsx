@@ -2,18 +2,16 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-// import React from 'react';
 // import MaListe from './components/MaListe';
-import { Route, Routes, Link } from "react-router-dom";
+import React from 'react';
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
-import Toto from "./pages/Toto";
+import Blackjack from "./pages/Blackjack";
 
 function App() {
+  const navigate = useNavigate()
     return (
-        // <div className="App">
-        //     <h1>Liste</h1>
-        //     <MaListe />
-        // </div>
+  
       <>
         <ul>
           <li>
@@ -25,13 +23,20 @@ function App() {
         </ul>
 
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route patg ="/toto" element={<Toto />}/>
+          <Route path="/" element={<Home />} />
+          <Route path ="/blackjack" element={<Blackjack />}/>
         </Routes>
       </>
     );
 }
 export default App;
+
+
+
+
+
+
+
 
 
 

@@ -54,7 +54,6 @@ class GameSchema(ModelSchema):
 def add(request, add_question: AddQuestionSchema):
     question = Question.objects.create(
         question_text=add_question.question_text, pub_date=timezone.now()
-
     )
     for choice in add_question.choices:
         choice
@@ -64,6 +63,6 @@ def add(request, add_question: AddQuestionSchema):
 def get(request, question_id: int):
     return Question.objects.get(pk=question_id)
 
-@api.get("/game/{id}", response=GameSchema)
-def get(request, game_id: int):
+@api.post("/start_game/{id}", response=GameSchema)
+def post(request, game_id: int):
     return Game.objects.get(pk=game_id)
