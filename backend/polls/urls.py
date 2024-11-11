@@ -4,8 +4,7 @@ from django.utils import timezone
 from blackjack.services import create_game
 api = NinjaAPI()
 from blackjack.models import Player, Game
-
-
+from django.http import Http404, HttpResponse
 
 
 class ChoiceSchema(ModelSchema):
@@ -30,24 +29,6 @@ class QuestionSchema(ModelSchema):
 class AddQuestionSchema(Schema):
     choices: list[str]
 
-class PlayerSchema(ModelSchema):
-    class Meta:
-        model = Player
-        fields = [
-            "id",
-            "name",
-            "score",
-        ]
-
-
-
-class GameSchema(ModelSchema):
-    class Meta:
-        model = Game
-        fields = [
-            "id",
-            "name",
-        ]
 
 
 @api.post("/create_question", response=QuestionSchema)
@@ -62,7 +43,3 @@ def add(request, add_question: AddQuestionSchema):
 @api.get("/question/{id}", response=QuestionSchema)
 def get(request, question_id: int):
     return Question.objects.get(pk=question_id)
-
-@api.post("/start_game/{id}", response=GameSchema)
-def post(request, game_id: int):
-    return Game.objects.get(pk=game_id)

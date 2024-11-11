@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'blackjack.apps.BlackjackConfig',
     'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

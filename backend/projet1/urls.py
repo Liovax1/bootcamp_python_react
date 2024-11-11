@@ -19,15 +19,9 @@ from django.urls import path
 from ninja import NinjaAPI
 api = NinjaAPI()
 from polls.urls import api
-from polls.urls import api as polls_api
-from blackjack.urls import api as blackjack_api
-
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/", api.urls),
-    path("api/polls/", polls_api.urls),
-    path("api/blackjack/", blackjack_api.urls),
+    path('api/', api.urls),
 ]
-
