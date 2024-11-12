@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useCreateGame from "../hooks/useCreateGame";
+import './Home.css';
 
 export default function Home() {
     const { createGame } = useCreateGame();

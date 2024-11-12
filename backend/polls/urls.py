@@ -3,8 +3,6 @@ from polls.models import Choice, Question
 from django.utils import timezone
 from blackjack.services import create_game
 api = NinjaAPI()
-from blackjack.models import Player, Game
-from django.http import Http404, HttpResponse
 
 
 class ChoiceSchema(ModelSchema):

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import useCreateGame from "../hooks/useCreateGame"; 
 import { useParams } from 'react-router-dom';
+import './Game.css';
 
 
 export default function Game() {
@@ -63,16 +64,13 @@ export default function Game() {
     
         setScoreBoard(updatedScoreBoard);
     
-        // Vérifier si un joueur a atteint 21
         const playersWith21 = updatedScoreBoard.filter(player => player.score === 21);
     
         if (playersWith21.length === 1) {
-            // Un seul gagnant, le jeu se termine
             setWinners(playersWith21);
             setGameEnded(true);
             return;
         } else if (playersWith21.length > 1) {
-            // Plusieurs joueurs ont atteint 21, refaire un tour
             alert("Égalité, un nouveau tour est nécessaire entre les joueurs qui ont fait 21.");
             setWinners(playersWith21);
             setScore(0);
@@ -80,7 +78,6 @@ export default function Game() {
             return;
         }
     
-        // Si tous les joueurs ont joué, on détermine le gagnant
         if (playerIndex + 1 === players.length) {
             const closestPlayer = updatedScoreBoard.reduce((winner, player) => {
                 if (player.score <= 21 && player.score > (winner?.score || 0)) {
@@ -92,7 +89,6 @@ export default function Game() {
             setWinners([closestPlayer]);
             setGameEnded(true);
         } else {
-            // Passer au joueur suivant
             const nextIndex = (playerIndex + 1) % players.length;
             setPlayerIndex(nextIndex);
             setCurrentPlayer(players[nextIndex]);

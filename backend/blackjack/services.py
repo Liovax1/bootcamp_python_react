@@ -1,18 +1,17 @@
 from blackjack.models import Game, Player
-import random
-from typing import List, Optional
+from typing import List
 
-def create_game(game_name: str, players: List[str]) -> Game: #Nouvelle instance de Game
+def create_game(game_name: str, players: List[str]):
     game = Game.objects.create(name=game_name)
     for name in players:
         Player.objects.create(name=name, game=game)
     return game
 
-def get_players(game_id: int) -> Optional[List[Player]]: #Liste des joueurs
+def get_players(game_id: int) :
     game = Game.objects.get(pk=game_id)
     return list(game.players.all())
 
-def get_winners(game_id: int) -> Optional[List[Player]]: #Filtre les joueurs gagnants et perdants
+def get_winners(game_id: int) :
     game = Game.objects.get(pk=game_id)
     lucky_players = []
     for player in game.players.all():
@@ -21,7 +20,7 @@ def get_winners(game_id: int) -> Optional[List[Player]]: #Filtre les joueurs gag
     return lucky_players
 
 
-def change_score(player_id: int, score: int) -> None: #Modifie le score d'un joueur
+def change_score(player_id: int, score: int):
     player = Player.objects.get(pk=player_id)
     player.score = score
     player.save()
