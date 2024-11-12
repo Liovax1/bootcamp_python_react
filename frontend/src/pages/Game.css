@@ -1,0 +1,76 @@
+.Game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.GameDiv {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+.score {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.actionTour {
+    margin: 20px 0;
+}
+
+select {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.home {
+    margin-top: 20px;
+    background-color: #17a2b8;
+}
+
+.home:hover {
+    background-color: #138496;
+}
+
+.actionTour {
+    margin: 20px 0; /* Espace entre les boutons et le score */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin: 10px; /* Ajoute une marge autour de chaque bouton */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
