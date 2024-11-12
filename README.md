@@ -1,3 +1,7 @@
+Auteur : Liova HOVAKIMYAN
+B3DEV BOOTCAMP PYTHON/JS
+
+
 # - Installation et mise en place du projet :
 
 #Pour mettre en place le projet vous devez faire les commandes suivantes :
